@@ -17,12 +17,12 @@ const Config = {
     /**
      * If you can't figure this one out, I don't have high hopes
      */
-    coinName: 'TurtleCoin',
+    coinName: '2ACoin',
 
     /**
      * Prefix for URI encoded addresses
      */
-    uriPrefix: 'turtlecoin://',
+    uriPrefix: '2acoin://',
 
     /**
      * How often to save the wallet, in milliseconds
@@ -33,13 +33,13 @@ const Config = {
      * The amount of decimal places your coin has, e.g. TurtleCoin has two
      * decimals
      */
-    decimalPlaces: 2,
+    decimalPlaces: 8,
 
     /**
      * The address prefix your coin uses - you can find this in CryptoNoteConfig.h.
      * In TurtleCoin, this converts to TRTL
      */
-    addressPrefix: 3914525,
+    addressPrefix: 0x1fcdee,
 
     /**
      * Request timeout for daemon operations in milliseconds
@@ -49,7 +49,7 @@ const Config = {
     /**
      * The block time of your coin, in seconds
      */
-    blockTargetTime: 30,
+    blockTargetTime: 90,
 
     /**
      * How often to process blocks, in millseconds
@@ -76,7 +76,7 @@ const Config = {
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
      */
-    ticker: 'TRTL',
+    ticker: 'ARMS',
 
     /**
      * Most people haven't mined any blocks, so lets not waste time scanning
@@ -87,26 +87,27 @@ const Config = {
     /**
      * The minimum fee allowed for transactions, in ATOMIC units
      */
-    minimumFee: 10,
+    minimumFee: 50000,
 
     /**
      * Mapping of height to mixin maximum and mixin minimum
      */
     mixinLimits: new MixinLimits([
-        /* Height: 440,000, minMixin: 0, maxMixin: 100, defaultMixin: 3 */
-        new MixinLimit(440000, 0, 100, 3),
+        /* Height: 0, minMixin: 0, maxMixin: 100, defaultMixin: 3 - V1 */
+        new MixinLimit(0, 0, 100, 100),
 
-        /* At height of 620000, static mixin of 7 */
-        new MixinLimit(620000, 7),
+        /* Height: 250, minMixin: 0, maxMixin: 7, defaultMixin: 7 - V2*/
+        new MixinLimit(250, 0, 7, 7),
 
-        /* At height of 800000, static mixin of 3 */
-        new MixinLimit(800000, 3),
-    ], 3 /* Default mixin of 3 before block 440,000 */),
+        /* Height: 100,000, minMixin: 0, maxMixin: 3, defaultMixin: 3 */
+        new MixinLimit(100000, 0, 3, 3),
+
+    ], 3 /* Default mixin of 3 before block 250 */),
 
     /**
      * The length of a standard address for your coin
      */
-    standardAddressLength: 99,
+    standardAddressLength: 98,
 
     /**
      * The length of an integrated address for your coin - It's the same as
@@ -115,7 +116,7 @@ const Config = {
      * chunks of 8 chars at once into blocks of 11 chars, we can calculate
      * this automatically
      */
-    integratedAddressLength: 99 + ((64 * 11) / 8),
+    integratedAddressLength: 98 + ((64 * 11) / 8),
 
     /**
      * Use our native func instead of JS slowness
@@ -169,7 +170,7 @@ const Config = {
      * should be equal to your current block count. If it's significantly different,
      * you can offset your timestamp to fix the discrepancy
      */
-    chainLaunchTimestamp: new Date(1000 * 1513031505),
+    chainLaunchTimestamp: new Date(1000 * 1533143395),
 
     /**
      * Fee to take on all transactions, in percentage
@@ -179,7 +180,7 @@ const Config = {
     /**
      * Address to send dev fee to
      */
-    devFeeAddress: 'TRTLv1E3ThL66fHthRHyzPSDqeUazPA9eBQYkuRnp8svKgvdoecQtqhSRaD59CEuH8XnYsw3YGtw1RWsQSqtHLqUXu4tvk9LryR',
+    devFeeAddress: 'guns7Kc4GcbiiVBouqcg5R2U4qtWfwkiHFPneQquyUZ2PNtWotKrATYYz8Sp7PFKN8jgXLLZF8qmRRDgFGBkUTps6vDoZj7Q8H',
 
     /**
      * Base url for price API
@@ -194,19 +195,19 @@ const Config = {
      * Default daemon to use. Can either be a BlockchainCacheApi(baseURL, SSL),
      * or a ConventionalDaemon(url, port).
      */
-    defaultDaemon: new BlockchainCacheApi('blockapi.turtlepay.io', true),
+    defaultDaemon: new BlockchainCacheApi('blockapi.2acoin.org', true),
 
     /**
      * A link to where a bug can be reported for your wallet. Please update
      * this if you are forking, so we don't get reported bugs for your wallet...
      *
      */
-    repoLink: 'https://github.com/turtlecoin/turtlecoin-mobile-wallet/issues',
+    repoLink: 'https://github.com/2acoin/2acoin-mobile-wallet/issues',
 
     /**
      * This only controls the name in the settings screen.
      */
-    appName: 'TonChan',
+    appName: '2ACoin',
 
     /**
      * Slogan phrase during wallet CreateScreen
@@ -221,7 +222,7 @@ const Config = {
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
      */
-    explorerBaseURL: 'https://explorer.turtlecoin.lol/?search=',
+    explorerBaseURL: 'https://explorer.2acoin.org/?search=',
 
     /**
      * A link to your app on the Apple app store. Currently blank because we
