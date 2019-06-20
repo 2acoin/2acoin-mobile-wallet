@@ -30,7 +30,7 @@ const Config = {
     walletSaveFrequency: 60 * 1000,
 
     /**
-     * The amount of decimal places your coin has, e.g. TurtleCoin has two
+     * The amount of decimal places your coin has, e.g. 2ACoin has eight
      * decimals
      */
     decimalPlaces: 8,
@@ -212,17 +212,17 @@ const Config = {
     /**
      * Slogan phrase during wallet CreateScreen
      */
-    sloganCreateScreen: 'Fast. Safe. Easy.',
+    sloganCreateScreen: 'Start Amassing ARMS today!',
 
     /**
      * Displayed in the settings screen
      */
-    appVersion: 'v0.1.0',
+    appVersion: 'v0.0.1',
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
      */
-    explorerBaseURL: 'https://explorer.2acoin.org/?search=',
+    explorerBaseURL: 'https://explorer.2acoin.org/?hash=',
 
     /**
      * A link to your app on the Apple app store. Currently blank because we
