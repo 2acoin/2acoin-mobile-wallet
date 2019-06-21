@@ -1,4 +1,5 @@
 // Copyright (C) 2018, Zpalmtree
+// Copyright (C) 2019, 2ACoin Developers
 //
 // Please see the included LICENSE file for more information.
 
@@ -217,7 +218,7 @@ const Config = {
     /**
      * Displayed in the settings screen
      */
-    appVersion: 'v0.0.1',
+    appVersion: 'v0.0.1.1',
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
@@ -233,7 +234,7 @@ const Config = {
     /**
      * A link to your app on the google play store
      */
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.tonchan',
+    googlePlayLink: '',
 };
 
 module.exports = Config;

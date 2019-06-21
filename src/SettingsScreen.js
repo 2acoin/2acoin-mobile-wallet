@@ -123,7 +123,7 @@ export class FaqScreen extends React.Component {
                     }}>
                         If you can no longer see your balance or sync status, you probably accidentally tapped the QR code.{'\n\n'}
                         Tap it again and your balance should reappear.{'\n\n'}
-                        This is intentional, so you can let someone scan your QR code, without revealing how much {Config.coinName} you have.
+                        This is intentional, so you can let someone scan your QR code, without revealing how many {Config.ticker} you have.
                     </Text>
 
                     <Text style={{
@@ -139,7 +139,7 @@ export class FaqScreen extends React.Component {
                         marginBottom: 20,
                     }}>
                         When you send a transaction, part of your balance gets locked.{'\n\n'}
-                        This is because your balance is comprised of multiple 'chunks' of {Config.coinName}.{'\n\n'}
+                        This is because your balance is comprised of multiple 'chunks' of {Config.coinName} {Config.ticker}.{'\n\n'}
                         It's similar to buying something with a $10 note, and getting back some change from the cashier.{'\n\n'}
                         Don't worry, your balance should unlock once the transaction confirms. (Normally in {arrivalTime})
                     </Text>
