@@ -1,4 +1,4 @@
-package com.tonchan;
+package com.armsvault;
 
 import android.app.Application;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.tonchan;
+package com.armsvault;
 
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
