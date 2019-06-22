@@ -1,4 +1,5 @@
 // Copyright (C) 2018, Zpalmtree
+// Copyright (C) 2019, 2ACoin Developers
 //
 // Please see the included LICENSE file for more information.
 
