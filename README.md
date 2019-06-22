@@ -3,6 +3,10 @@
 ![Screenshot](https://i.imgur.com/zJrbZIC.png)
 ![Screenshot](https://i.imgur.com/i6J1uKH.png)
 
+## Releases - Android
+
+The initial release of 2ACoin ARMSVault is built for the Android mobile platform. We have plans for an IOS release at a later time. Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobile-wallet/releases) for the latest release.
+
 ## Setup
 
 Note: Make sure you use yarn instead of npm. Since there is no package-lock.json, only a yarn.lock, using npm will get you the wrong packages.
