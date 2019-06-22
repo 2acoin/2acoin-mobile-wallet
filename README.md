@@ -1,6 +1,7 @@
-# TonChan - A mobile, native TurtleCoin wallet
+# ARMSVault - A mobile, native 2ACoin ARMS wallet
 
-![Screenshot](https://i.imgur.com/F5LMYKl.png)
+![Screenshot](https://i.imgur.com/zJrbZIC.png)
+![Screenshot](https://i.imgur.com/i6J1uKH.png)
 
 ## Setup
 
@@ -8,9 +9,9 @@ Note: Make sure you use yarn instead of npm. Since there is no package-lock.json
 
 * Clone the repo:
 
-`git clone https://github.com/turtlecoin/turtlecoin-mobile-wallet.git`
+`git clone https://github.com/2acoin/2acoin-mobile-wallet.git`
 
-`cd turtlecoin-mobile-wallet`
+`cd 2acoin-mobile-wallet`
 
 * Install React Native CLI
 
@@ -69,23 +70,23 @@ If you need to update the native code, you may find this article helpful: https:
 To get the updated class signatures, rebuild the Java code (i.e., run `react-native run-android`, then run 
 
 ```
-javap -classpath android/app/build/intermediates/classes/debug/ -s com.tonchan.ClassName
+javap -classpath android/app/build/intermediates/classes/debug/ -s com.armsvault.ClassName
 ```
 
 Where `ClassName` is the class you want to query. For example, to get the signatures for `WalletBlockInfo`:
 
 ```
-javap -classpath android/app/build/intermediates/classes/debug/ -s com.tonchan.WalletBlockInfo
+javap -classpath android/app/build/intermediates/classes/debug/ -s com.armsvault.WalletBlockInfo
 ```
 
 Then the constructor signature is this section:
 
 ```
-public com.tonchan.WalletBlockInfo(com.tonchan.RawTransaction, com.tonchan.RawTransaction[]);
-    Signature: (Lcom/tonchan/RawTransaction;[Lcom/tonchan/RawTransaction;)V
+public com.armsvault.WalletBlockInfo(com.armsvault.RawTransaction, com.armsvault.RawTransaction[]);
+    Signature: (Lcom/armsvault/RawTransaction;[Lcom/armsvault/RawTransaction;)V
 ```
 
-Specifically, `(Lcom/tonchan/RawTransaction;[Lcom/tonchan/RawTransaction;)V`
+Specifically, `(Lcom/armsvault/RawTransaction;[Lcom/armsvaylt/RawTransaction;)V`
 
 ### Flowcharts
 
@@ -103,13 +104,13 @@ You need to bump the version number in:
 
 ### Integrating QR Codes or URIs
 
-TonChan supports two kinds of QR codes.
+ArmsVault supports two kinds of QR codes.
 
 * Standard addresses / integrated addresses - This is simply the address encoded as a QR code.
 
-* turtlecoin:// URI encoded as a QR code.
+* 2acoin:// URI encoded as a QR code.
 
-Your uri must being with `turtlecoin://` followed by the address to send to, for example, `turtlecoin://TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW`
+Your uri must being with `2acoin://` followed by the address to send to, for example, `2acoin://gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU`
 
 There are a few optional parameters.
 
@@ -120,10 +121,10 @@ There are a few optional parameters.
 An example of a URI containing all of the above parameters:
 
 ```
-turtlecoin://TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW?amount=10000&name=Starbucks%20Coffee&paymentid=f13adc8ac78eb22ffcee3f82e0e9ffb251dc7dc0600ef599087a89b623ca1402
+2acoin://gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU?amount=200000000&name=Starbucks%20Coffee&paymentid=f13adc8ac78eb22ffcee3f82e0e9ffb251dc7dc0600ef599087a89b623ca1402
 ```
 
-This would send `100 TRTL` (10000 in atomic units) to the address `TRTLv2Fyavy8CXG8BPEbNeCHFZ1fuDCYCZ3vW5H5LXN4K2M2MHUpTENip9bbavpHvvPwb4NDkBWrNgURAd5DB38FHXWZyoBh4wW`, using the name `Starbucks Coffee` (Note the URI encoding), and using a payment ID of `f13adc8ac78eb22ffcee3f82e0e9ffb251dc7dc0600ef599087a89b623ca1402`
+This would send `2 ARMS` (200000000 in atomic units) to the address `gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU`, using the name `Starbucks Coffee` (Note the URI encoding), and using a payment ID of `f13adc8ac78eb22ffcee3f82e0e9ffb251dc7dc0600ef599087a89b623ca1402`
 
 You can also just display the URI as a hyperlink. If a user clicks the link, it will open the app, and jump to the confirm screen, just as a QR code would function. (Provided all the fields are given)
 
@@ -193,6 +194,6 @@ Then, copy the line of code `Sentry.config('https://8ecf138e1d1e4d558178be3f2b5e
 
 Your API key will be different, don't just copy the one here.
 
-Finally, replace `Config.coinName === 'TurtleCoin'` in `src/Sentry.js` with the coin name defined in the config.
+Finally, replace `Config.coinName === '2ACoin'` in `src/Sentry.js` with the coin name defined in the config.
 
 Once you've done that, you can test sentry is working by adding something like `throw new Error('Hello, sentry');` in the mainscreen constructor.
