@@ -1,4 +1,5 @@
 // Copyright (C) 2018-2019, Zpalmtree
+// Copyright (C) 2019, 2ACoin Developers
 //
 // Please see the included LICENSE file for more information.
 
@@ -99,6 +100,12 @@ function sendNotification(transaction) {
         message: `You were sent ${prettyPrintAmount(transaction.totalAmount())}`,
         data: JSON.stringify(transaction.hash),
     });
+}
+
+function getTruncatedBalance(amount) {
+    var str = prettyPrintAmount(amount);
+    var cbal = str.substring(0 , str.length - 9) + ' ' + Config.ticker; 
+    return cbal;
 }
 
 /**
@@ -318,20 +325,20 @@ class BalanceComponent extends React.Component {
             expandedBalance: false,
         };
     }
-
+    
     render() {
         const compactBalance = <OneLineText
-                                     style={{ color: this.props.lockedBalance === 0 ? this.props.screenProps.theme.primaryColour : 'orange', fontSize: 35}}
+                                     style={{ color: this.props.lockedBalance === 0 ? this.props.screenProps.theme.primaryColour : 'orange', fontSize: 25}}
                                      onPress={() => this.setState({
                                          expandedBalance: !this.state.expandedBalance
                                      })}
                                 >
-                                     {prettyPrintAmount(this.props.unlockedBalance + this.props.lockedBalance)}
+                                     {getTruncatedBalance(this.props.unlockedBalance + this.props.lockedBalance)}
                                </OneLineText>;
 
         const lockedBalance = <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                                     <FontAwesome name={'lock'} size={22} color={'orange'} style={{marginRight: 7}}/>
-                                    <OneLineText style={{ color: 'orange', fontSize: 25}}
+                                    <OneLineText style={{ color: 'orange', fontSize: 20}}
                                           onPress={() => this.setState({
                                              expandedBalance: !this.state.expandedBalance
                                           })}>
@@ -341,7 +348,7 @@ class BalanceComponent extends React.Component {
 
         const unlockedBalance = <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                                     <FontAwesome name={'unlock'} size={22} color={this.props.screenProps.theme.primaryColour} style={{marginRight: 7}}/>
-                                    <OneLineText style={{ color: this.props.screenProps.theme.primaryColour, fontSize: 25}}
+                                    <OneLineText style={{ color: this.props.screenProps.theme.primaryColour, fontSize: 20}}
                                           onPress={() => this.setState({
                                              expandedBalance: !this.props.expandedBalance
                                           })}>
