@@ -25,7 +25,7 @@ async function getBTCPrice() {
 
         Globals.logger.addLogMessage('Updated coin price from FCB API = ' + res.data.last);
 
-        return coinData;
+        return res.data.last;
     } catch (error) {
         console.log('Failed to get price from API: ' + error);
         return 0;
@@ -51,11 +51,10 @@ export async function getCoinPriceFromAPI() {
         Globals.logger.addLogMessage('Updated coin price from CoinGecko API');
 
         // Start the replace of the prices for 2ACoin
-        priceJSON = '{"2acoin": {';
-        currCount = 0;
         amount = await getBTCPrice();
-
         prices = coinData || {};
+        currCount = 0;
+        priceData = '{';
 
         for (const currency of Constants.currencies) {
             currCount += 1;
@@ -68,16 +67,17 @@ export async function getCoinPriceFromAPI() {
             }
 
             if (currCount < 16) {
-               thisCurrency  = '"' + currency.ticker + '": ' + parseFloat(amount).toFixed(8) + ',';;
+               thisCurrency  = '"' + currency.ticker + '": ' + parseFloat(amount).toFixed(8) + ',';
             } else {
                thisCurrency  = '"' + currency.ticker + '": ' + parseFloat(amount).toFixed(8);
             }
 
 //            Globals.logger.addLogMessage('Built price for  = ' + thisCurrency);
-            priceJSON = priceJSON + thisCurrency;
+            priceData = priceData + thisCurrency;
         }
-        priceJSON = priceJSON + '}}';
-//        Globals.logger.addLogMessage('Completed JSON structure = ' + priceJSON);
+        
+        priceData = priceData + '}';
+        priceJSON = JSON.parse(priceData);
 
         return priceJSON;        
 //        return coinData;
