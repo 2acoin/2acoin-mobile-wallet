@@ -218,7 +218,7 @@ const Config = {
     /**
      * Displayed in the settings screen
      */
-    appVersion: 'v0.0.1.2',
+    appVersion: 'v0.0.1.3',
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
@@ -229,12 +229,12 @@ const Config = {
      * A link to your app on the Apple app store. Currently blank because we
      * haven't released for iOS yet...
      */
-    appStoreLink: '',
+    appStoreLink: 'https://github.com/2acoin/2acoin-mobile-wallet/releases',
 
     /**
      * A link to your app on the google play store
      */
-    googlePlayLink: '',
+    googlePlayLink: 'https://github.com/2acoin/2acoin-mobile-wallet/releases',
 };
 
 module.exports = Config;
