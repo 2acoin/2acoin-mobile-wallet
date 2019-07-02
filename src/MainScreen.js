@@ -97,13 +97,13 @@ function sendNotification(transaction) {
 
     PushNotification.localNotification({
         title: 'Incoming transaction received!',
-        message: `You were sent ${prettyPrintAmount(transaction.totalAmount())}`,
+        message: `You were sent ${prettyPrintAmount(transaction.totalAmount(), Config)}`,
         data: JSON.stringify(transaction.hash),
     });
 }
 
 function getTruncatedBalance(amount) {
-    var str = prettyPrintAmount(amount);
+    var str = prettyPrintAmount(amount, Config);
     var cbal = str.substring(0 , str.length - 9) + ' ' + Config.ticker; 
     return cbal;
 }
@@ -342,7 +342,7 @@ class BalanceComponent extends React.Component {
                                           onPress={() => this.setState({
                                              expandedBalance: !this.state.expandedBalance
                                           })}>
-                                        {prettyPrintAmount(this.props.lockedBalance)}
+                                        {prettyPrintAmount(this.props.lockedBalance, Config)}
                                     </OneLineText>
                               </View>;
 
@@ -352,7 +352,7 @@ class BalanceComponent extends React.Component {
                                           onPress={() => this.setState({
                                              expandedBalance: !this.props.expandedBalance
                                           })}>
-                                        {prettyPrintAmount(this.props.unlockedBalance)}
+                                        {prettyPrintAmount(this.props.unlockedBalance, Config)}
                                     </OneLineText>
                                 </View>;
 
