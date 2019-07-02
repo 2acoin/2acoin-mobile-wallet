@@ -218,7 +218,7 @@ const Config = {
     /**
      * Displayed in the settings screen
      */
-    appVersion: 'v0.0.1.3',
+    appVersion: 'v0.1.0.4',
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
@@ -234,7 +234,7 @@ const Config = {
     /**
      * A link to your app on the google play store
      */
-    googlePlayLink: 'https://github.com/2acoin/2acoin-mobile-wallet/releases',
+    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.armsvault',
 };
 
 module.exports = Config;

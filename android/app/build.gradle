@@ -112,8 +112,8 @@ android {
         applicationId "com.armsvault"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 03
-        versionName "v0.0.1.3"
+        versionCode 04
+        versionName "v0.1.0.4"
         missingDimensionStrategy 'react-native-camera', 'general'
         ndk {
             abiFilters "armeabi-v7a", "x86"
