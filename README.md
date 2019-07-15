@@ -7,11 +7,12 @@
 
 The initial release of 2ACoin ARMSVault is built for the Android mobile platform. We have plans for an IOS release at a later time. Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobile-wallet/releases) for the latest release.
 
-## Setup
+### Initial Setup
 
-Note: Make sure you use yarn instead of npm. Since there is no package-lock.json, only a yarn.lock, using npm will get you the wrong packages.
+* cd TonChan
+* yarn install
 
-* Clone the repo:
+### Running
 
 `git clone https://github.com/2acoin/2acoin-mobile-wallet.git`
 
@@ -100,6 +101,13 @@ There is a flow chart describing screen navigation in the `flowcharts` folder.
 
 There is also an xml file that you can import into [draw.io](https://draw.io) if you want to modify the flowchart.
 
+* node --max-old-space-size=8192 node_modules/react-native/local-cli/cli.js start
+* react-native run-android
+
+### Logging
+
+`react-native log-android`
+
 ### Creating a release
 
 You need to bump the version number in:
@@ -107,6 +115,12 @@ You need to bump the version number in:
 * `src/Config.js` - `appVersion`
 * `android/app/build.gradle` - `versionCode` and `versionName`
 * `package.json` - `version` - Not strictly required
+
+Then
+`cd android`
+`./gradlew bundleRelease`
+Optionally
+`./gradlew installRelease`
 
 ### Integrating QR Codes or URIs
 
@@ -133,6 +147,7 @@ An example of a URI containing all of the above parameters:
 This would send `2 ARMS` (200000000 in atomic units) to the address `gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU`, using the name `Starbucks Coffee` (Note the URI encoding), and using a payment ID of `f13adc8ac78eb22ffcee3f82e0e9ffb251dc7dc0600ef599087a89b623ca1402`
 
 You can also just display the URI as a hyperlink. If a user clicks the link, it will open the app, and jump to the confirm screen, just as a QR code would function. (Provided all the fields are given)
+<<<<<<< HEAD
 
 ## Running natively on your Android device
 
