@@ -122,6 +122,8 @@ Then
 Optionally
 `./gradlew installRelease`
 
+or `yarn deploy-android`
+
 ### Integrating QR Codes or URIs
 
 ArmsVault supports two kinds of QR codes.
