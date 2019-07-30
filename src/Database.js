@@ -203,7 +203,7 @@ export async function savePreferencesToDatabase(preferences) {
                 preferences.scanCoinbaseTransactions ? 1 : 0,
                 preferences.limitData ? 1 : 0,
                 preferences.theme,
-                preferences.pinConfirmation ? 1 : 0,
+                preferences.authConfirmation ? 1 : 0,
                 preferences.autoOptimize ? 1 : 0,
             ]
         );
@@ -235,7 +235,7 @@ export async function loadPreferencesFromDatabase() {
             scanCoinbaseTransactions: item.scancoinbasetransactions === 1,
             limitData: item.limitdata === 1,
             theme: item.theme,
-            pinConfirmation: item.pinconfirmation === 1,
+            authConfirmation: item.pinconfirmation === 1,
             autoOptimize: item.autooptimize === 1,
         }
     }
