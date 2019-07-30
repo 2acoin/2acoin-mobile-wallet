@@ -397,11 +397,11 @@ class SyncComponent extends React.Component {
             progress: 0,
             percent: '0.00',
         };
+
+        this.updateSyncStatus = this.updateSyncStatus.bind(this);
     }
 
-    tick() {
-        let [walletHeight, localHeight, networkHeight] = Globals.wallet.getSyncStatus();
-
+    updateSyncStatus(walletHeight, localHeight, networkHeight) {
         /* Since we update the network height in intervals, and we update wallet
            height by syncing, occasionaly wallet height is > network height.
            Fix that here. */
@@ -434,11 +434,13 @@ class SyncComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.tick(), 1000);
+        Globals.wallet.on('heightchange', this.updateSyncStatus);
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
+        if (Globals.wallet) {
+            Globals.wallet.removeListener('heightchange', this.updateSyncStatus);
+        }
     }
 
     render() {
