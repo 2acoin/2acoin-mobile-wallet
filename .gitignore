@@ -34,3 +34,5 @@ buck-out/
 .externalNativeBuild
 index.android.bundle
 android/build
+android/sentry.properties
+ios/sentry.properties
