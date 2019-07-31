@@ -115,6 +115,13 @@ async function createTables(DB) {
                 ADD
                     autooptimize BOOLEAN`
             );
+
+            tx.executeSql(
+                `ALTER TABLE
+                    preferences
+                ADD
+                    authmethod TEXT`
+            );
         }
 
         tx.executeSql(
@@ -145,10 +152,28 @@ async function createTables(DB) {
 
         /* Setup default preference values */
         tx.executeSql(
-            `INSERT OR IGNORE INTO preferences
-                (id, currency, notificationsenabled, scancoinbasetransactions, limitdata, theme, pinconfirmation, autooptimize)
-            VALUES
-                (0, 'usd', 1, 0, 0, 'darkMode', 0, 1)`
+            `INSERT OR IGNORE INTO preferences (
+                id,
+                currency,
+                notificationsenabled,
+                scancoinbasetransactions,
+                limitdata,
+                theme,
+                pinconfirmation,
+                autooptimize,
+                authmethod
+            )
+            VALUES (
+                0,
+                'usd',
+                1,
+                0,
+                0,
+                'darkMode',
+                0,
+                1,
+                'hardware-auth'
+            )`
         );
 
         /* Set new auto optimize column if not assigned yet */
@@ -157,7 +182,8 @@ async function createTables(DB) {
                 `UPDATE
                     preferences
                 SET
-                    autooptimize = 1
+                    autooptimize = 1,
+                    authmethod = 'hardware-auth'
                 WHERE
                     id = 0`
             );
@@ -194,7 +220,8 @@ export async function savePreferencesToDatabase(preferences) {
                 limitdata = ?,
                 theme = ?,
                 pinconfirmation = ?,
-                autooptimize = ?
+                autooptimize = ?,
+                authmethod = ?
             WHERE
                 id = 0`,
             [
@@ -205,6 +232,7 @@ export async function savePreferencesToDatabase(preferences) {
                 preferences.theme,
                 preferences.authConfirmation ? 1 : 0,
                 preferences.autoOptimize ? 1 : 0,
+                preferences.authenticationMethod,
             ]
         );
     });
@@ -219,7 +247,8 @@ export async function loadPreferencesFromDatabase() {
             limitdata,
             theme,
             pinconfirmation,
-            autooptimize
+            autooptimize,
+            authmethod
         FROM
             preferences
         WHERE
@@ -237,6 +266,7 @@ export async function loadPreferencesFromDatabase() {
             theme: item.theme,
             authConfirmation: item.pinconfirmation === 1,
             autoOptimize: item.autooptimize === 1,
+            authenticationMethod: item.authmethod
         }
     }
 
