@@ -12,86 +12,86 @@ import {
     deriveSecretKey, generateKeyImage,
 } from './NativeCode';
 
-const Config = {
+const Config = new function() {
     /**
      * If you can't figure this one out, I don't have high hopes
      */
-    coinName: '2ACoin',
+    this.coinName = '2ACoin';
 
     /**
      * Prefix for URI encoded addresses
      */
-    uriPrefix: '2acoin://',
+    this.uriPrefix = '2acoin://';
 
     /**
      * How often to save the wallet, in milliseconds
      */
-    walletSaveFrequency: 60 * 1000,
+    this.walletSaveFrequency = 60 * 1000;
 
     /**
      * The amount of decimal places your coin has, e.g. 2ACoin has eight
      * decimals
      */
-    decimalPlaces: 8,
+    this.decimalPlaces = 8;
 
     /**
      * The address prefix your coin uses - you can find this in CryptoNoteConfig.h.
      * In TurtleCoin, this converts to TRTL
      */
-    addressPrefix: 0x1fcdee,
+    this.addressPrefix = 0x1fcdee;
 
     /**
      * Request timeout for daemon operations in milliseconds
      */
-    requestTimeout: 10 * 1000,
+    this.requestTimeout = 10 * 1000;
 
     /**
      * The block time of your coin, in seconds
      */
-    blockTargetTime: 90,
+    this.blockTargetTime = 90;
 
     /**
      * How often to process blocks, in millseconds
      */
-    syncThreadInterval: 4,
+    this.syncThreadInterval = 4;
 
     /**
      * How often to update the daemon info, in milliseconds
      */
-    daemonUpdateInterval: 10 * 1000,
+    this.daemonUpdateInterval = 10 * 1000;
 
     /**
      * How often to check on locked transactions
      */
-    lockedTransactionsCheckInterval: 10 * 3000,
+    this.lockedTransactionsCheckInterval = 10 * 3000;
 
     /**
      * The amount of blocks to process per 'tick' of the mainloop. Note: too
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    blocksPerTick: 1,
+    this.blocksPerTick = 1;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
      */
-    ticker: 'ARMS',
+    this.ticker = 'ARMS';
 
     /**
      * Most people haven't mined any blocks, so lets not waste time scanning
      * them
      */
-    scanCoinbaseTransactions: false,
+    this.scanCoinbaseTransactions = false;
 
     /**
      * The minimum fee allowed for transactions, in ATOMIC units
      */
-    minimumFee: 50000,
+    this.minimumFee = 50000;
 
     /**
      * Mapping of height to mixin maximum and mixin minimum
      */
-    mixinLimits: new MixinLimits([
+    this.mixinLimits = new MixinLimits([
         /* Height: 0, minMixin: 0, maxMixin: 100, defaultMixin: 3 - V1 */
         new MixinLimit(0, 0, 100, 100),
 
@@ -106,7 +106,7 @@ const Config = {
     /**
      * The length of a standard address for your coin
      */
-    standardAddressLength: 98,
+    this.standardAddressLength = 98;
 
     /**
      * The length of an integrated address for your coin - It's the same as
@@ -115,42 +115,42 @@ const Config = {
      * chunks of 8 chars at once into blocks of 11 chars, we can calculate
      * this automatically
      */
-    integratedAddressLength: 98 + ((64 * 11) / 8),
+    this.integratedAddressLength = 98 + ((64 * 11) / 8);
 
     /**
      * Use our native func instead of JS slowness
      */
-    derivePublicKey: Platform.OS === 'ios' ? undefined : derivePublicKey,
+    this.derivePublicKey = Platform.OS === 'ios' ? undefined : derivePublicKey;
 
     /**
      * Use our native func instead of JS slowness
      */
-    generateKeyDerivation: Platform.OS === 'ios' ? undefined : generateKeyDerivation,
+    this.generateKeyDerivation = Platform.OS === 'ios' ? undefined : generateKeyDerivation;
 
     /**
      * Use our native func instead of JS slowness
      */
-    generateRingSignatures: Platform.OS === 'ios' ? undefined : generateRingSignatures,
+    this.generateRingSignatures = Platform.OS === 'ios' ? undefined : generateRingSignatures;
 
     /**
      * Use our native func instead of JS slowness
      */
-    deriveSecretKey: Platform.OS === 'ios' ? undefined : deriveSecretKey,
+    this.deriveSecretKey = Platform.OS === 'ios' ? undefined : deriveSecretKey;
 
     /**
      * Use our native func instead of JS slowness
      */
-    generateKeyImage: Platform.OS === 'ios' ? undefined : generateKeyImage,
+    this.generateKeyImage = Platform.OS === 'ios' ? undefined : generateKeyImage;
 
     /**
      * Memory to use for storing downloaded blocks - 3MB
      */
-    blockStoreMemoryLimit: 1024 * 1024 * 3,
+    this.blockStoreMemoryLimit = 1024 * 1024 * 3;
 
     /**
      * Amount of blocks to request from the daemon at once
      */
-    blocksPerDaemonRequest: 100,
+    this.blocksPerDaemonRequest = 100;
 
     /**
      * Unix timestamp of the time your chain was launched.
@@ -160,17 +160,17 @@ const Config = {
      * should be equal to your current block count. If it's significantly different,
      * you can offset your timestamp to fix the discrepancy
      */
-    chainLaunchTimestamp: new Date(1000 * 1533143395),
+    this.chainLaunchTimestamp = new Date(1000 * 1533143395);
 
     /**
      * Fee to take on all transactions, in percentage
      */
-    devFeePercentage: 0.5,
+    this.devFeePercentage = 0.5;
 
     /**
      * Address to send dev fee to
      */
-    devFeeAddress: 'guns7Kc4GcbiiVBouqcg5R2U4qtWfwkiHFPneQquyUZ2PNtWotKrATYYz8Sp7PFKN8jgXLLZF8qmRRDgFGBkUTps6vDoZj7Q8H',
+    this.devFeeAddress = 'guns7Kc4GcbiiVBouqcg5R2U4qtWfwkiHFPneQquyUZ2PNtWotKrATYYz8Sp7PFKN8jgXLLZF8qmRRDgFGBkUTps6vDoZj7Q8H';
 
     /**
      * Base url for price API
@@ -179,59 +179,56 @@ const Config = {
      * you just set this to an empty string. If you have another API you want
      * it to support, you're going to have to modify the code in Currency.js.
      */
-    priceApiLink: 'https://api.coingecko.com/api/v3/simple/price',
+    this.priceApiLink = 'https://api.coingecko.com/api/v3/simple/price';
 
     /**
      * Default daemon to use. Can either be a BlockchainCacheApi(baseURL, SSL),
      * or a ConventionalDaemon(url, port).
      */
-<<<<<<< HEAD
-    defaultDaemon: new BlockchainCacheApi('blockapi.2acoin.org', true),
-=======
-    defaultDaemon: new Daemon('blockapi.turtlepay.io', 443),
->>>>>>> 587b94d... Reimport project with React 60
+    this.defaultDaemon = new Daemon('blockapi.2acoin.org', 443);
 
     /**
      * A link to where a bug can be reported for your wallet. Please update
      * this if you are forking, so we don't get reported bugs for your wallet...
      *
      */
-    repoLink: 'https://github.com/2acoin/2acoin-mobile-wallet/issues',
+    this.repoLink = 'https://github.com/2acoin/2acoin-mobile-wallet/issues';
 
     /**
      * This only controls the name in the settings screen.
      */
-    appName: '2ACoin',
+    this.appName = '2ACoin';
+
+    /** 
+     * Customer user agent string for wallet backend requests
+     */
+    this.customUserAgentString = this.appName.toLowerCase() + '-da-greatest!';
 
     /**
      * Slogan phrase during wallet CreateScreen
      */
-    sloganCreateScreen: 'Start Amassing ARMS today!',
+    this.sloganCreateScreen = 'Start Amassing ARMS today!';
 
     /**
      * Displayed in the settings screen
      */
-<<<<<<< HEAD
-    appVersion: 'v0.1.0.5',
-=======
-    appVersion: 'v1.0.0',
->>>>>>> 587b94d... Reimport project with React 60
+    this.appVersion = 'v0.1.0.5';
 
     /**
      * Base URL for us to chuck a hash on the end, and find a transaction
      */
-    explorerBaseURL: 'https://explorer.2acoin.org/?hash=',
+    this.explorerBaseURL = 'https://explorer.2acoin.org/?hash=';
 
     /**
      * A link to your app on the Apple app store. Currently blank because we
      * haven't released for iOS yet...
      */
-    appStoreLink: 'https://github.com/2acoin/2acoin-mobile-wallet/releases',
+    this.appStoreLink = 'https://github.com/2acoin/2acoin-mobile-wallet/releases';
 
     /**
      * A link to your app on the google play store
      */
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.armsvault',
+    this.googlePlayLink = 'https://play.google.com/store/apps/details?id=com.armsvault';
 };
 
 module.exports = Config;
