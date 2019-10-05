@@ -25,7 +25,7 @@ import { prettyPrintAmount, LogLevel } from 'turtlecoin-wallet-backend';
 import Config from './Config';
 
 import { Styles } from './Styles';
-import { handleURI } from './Utilities';
+import { handleURI, toastPopUp } from './Utilities';
 import { ProgressBar } from './ProgressBar';
 import { saveToDatabase } from './Database';
 import { Globals, initGlobals } from './Globals';
@@ -41,6 +41,10 @@ async function init(navigation) {
 
     Globals.wallet.on('incomingtx', (transaction) => {
         sendNotification(transaction);
+    });
+
+    Globals.wallet.on('deadnode', () => {
+        toastPopUp('Node may be offline, check the settings screen to swap nodes', false);
     });
 
     Globals.wallet.setLoggerCallback((prettyMessage, message) => {
