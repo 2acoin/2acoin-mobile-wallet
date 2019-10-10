@@ -9,100 +9,13 @@ The initial release of 2ACoin ARMSVault is built for the Android mobile platform
 
 ### Initial Setup
 
-* cd TonChan
-* yarn install
+* `cd 2acoin-mobile-wallet`
+* `yarn install`
 
 ### Running
 
-`git clone https://github.com/2acoin/2acoin-mobile-wallet.git`
-
-`cd 2acoin-mobile-wallet`
-
-* Install React Native CLI
-
-`npm install -g react-native-cli`
-
-* Install yarn if you don't have it already:
-
-`npm install -g yarn`
-
-* Install the dependencies:
-
-`yarn install`
-
-* Next, we need to setup the Android JDK and development environment.
-
-First we need to install the Android JDK (Version 8!).
-
-* Ubuntu - `sudo apt-get install default-jdk`
-* Arch Linux - `pacman -S jdk-openjdk`
-* OSX - `brew tap AdoptOpenJDK/openjdk` & `brew cask install adoptopenjdk8`
-
-Next, lets install Android Studio.
-
-* Ubuntu - `https://askubuntu.com/a/941222/764667`
-* Arch Linux - `pacaur -S android-studio` (It's in the AUR, feel free to use your favourite package manager or install manually.)
-
-Next, we need to run the android studio setup, and set some path variables. This is a bit complicated, so I'm going to hand off to the facebook guide here: https://facebook.github.io/react-native/docs/getting-started#1-install-android-studio
-
-Skip the 'Creating a new application' header, and continue on to 'Preparing the Android Device'. Run `android-studio .` in this directory to import the project.
-
-Once you have your virtual device setup, you can launch the app itself.
-
-* Run the program:
-
-`yarn start` (or `yarn start-release`)
-
-If you get an error about 'Unsupported major.minor version', you may need to set JAVA_HOME to point to the correct jdk.
-
-For example, `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre/`
-
-If you get an error about duplicate resources, run `rm -r android/app/src/main/res/drawable-*`
-
-## Developing
-
-### Logging
-
-You probably want to run `react-native log-android` so you can read the console output, and have an easier log of what's going on as you're developing. Errors will get printed to the device, but console.log won't, and it's a little hard to read.
-
-
-### Live Reloading
-
-You probably also want to enable live reloading. Hit "Ctrl-M" in your emulator, or type `adb shell input keyevent 82` to open the developer menu, and enable `Live Reload`. You probably don't want to use Hot Reloading, it's pretty buggy.
-
-### Native Code
-
-If you need to update the native code, you may find this article helpful: https://thebhwgroup.com/blog/react-native-jni
-
-To get the updated class signatures, rebuild the Java code (i.e., run `react-native run-android`, then run 
-
-```
-javap -classpath android/app/build/intermediates/classes/debug/ -s com.armsvault.ClassName
-```
-
-Where `ClassName` is the class you want to query. For example, to get the signatures for `WalletBlockInfo`:
-
-```
-javap -classpath android/app/build/intermediates/classes/debug/ -s com.armsvault.WalletBlockInfo
-```
-
-Then the constructor signature is this section:
-
-```
-public com.armsvault.WalletBlockInfo(com.armsvault.RawTransaction, com.armsvault.RawTransaction[]);
-    Signature: (Lcom/armsvault/RawTransaction;[Lcom/armsvault/RawTransaction;)V
-```
-
-Specifically, `(Lcom/armsvault/RawTransaction;[Lcom/armsvaylt/RawTransaction;)V`
-
-### Flowcharts
-
-There is a flow chart describing screen navigation in the `flowcharts` folder.
-
-There is also an xml file that you can import into [draw.io](https://draw.io) if you want to modify the flowchart.
-
-* node --max-old-space-size=8192 node_modules/react-native/local-cli/cli.js start
-* react-native run-android
+* `node --max-old-space-size=8192 node_modules/react-native/local-cli/cli.js start` (Just need to run this once to start the server, leave it running)
+* `react-native run-android`
 
 ### Logging
 
