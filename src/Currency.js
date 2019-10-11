@@ -10,32 +10,9 @@ import Constants from './Constants';
 
 import { Globals } from './Globals';
 
-async function getBTCPrice() {
-    let uri = `https://fcbaccount.com/api/public/v1/get/exchange/market?pair=BTC-ARMS`;
-
-    try {
-        const res = await request({
-            json: true,
-            method: 'GET',
-            timeout: 10000,
-            url: uri,
-        });
-
-        const coinData = res.data.last;
-
-        Globals.logger.addLogMessage('Updated coin price from FCB API = ' + res.data.last);
-
-        return res.data.last;
-    } catch (error) {
-        console.log('Failed to get price from API: ' + error);
-        return 0;
-    }
-}
-
 export async function getCoinPriceFromAPI() {
     /* Note: Coingecko has to support your coin for this to work */
-//    let uri = `${Config.priceApiLink}?ids=${Config.coinName.toLowerCase()}&vs_currencies=${getCurrencyTickers()}`;
-    let uri = `${Config.priceApiLink}?ids=bitcoin&vs_currencies=${getCurrencyTickers()}`;
+    let uri = `${Config.priceApiLink}?ids=${Config.coinName.toLowerCase()}&vs_currencies=${getCurrencyTickers()}`;
 
     try {
         const data = await request({
@@ -45,42 +22,11 @@ export async function getCoinPriceFromAPI() {
             url: uri,
         });
 
-//        const coinData = data[Config.coinName.toLowerCase()];
-        const coinData = data['bitcoin'];
+        const coinData = data[Config.coinName.toLowerCase()];
 
         Globals.logger.addLogMessage('Updated coin price from CoinGecko API');
 
-        // Start the replace of the prices for 2ACoin
-        amount = await getBTCPrice();
-        prices = coinData || {};
-        currCount = 0;
-        priceData = '{';
-
-        for (const currency of Constants.currencies) {
-            currCount += 1;
-
-            // BTC Value must always be 1st so we can save and display proper value for other currencies
-            if (currCount === 1) {
-               btcAmount = amount;
-            } else {
-               amount = prices[currency.ticker] * btcAmount;
-            }
-
-            if (currCount < 16) {
-               thisCurrency  = '"' + currency.ticker + '": ' + parseFloat(amount).toFixed(8) + ',';
-            } else {
-               thisCurrency  = '"' + currency.ticker + '": ' + parseFloat(amount).toFixed(8);
-            }
-
-//            Globals.logger.addLogMessage('Built price for  = ' + thisCurrency);
-            priceData = priceData + thisCurrency;
-        }
-        
-        priceData = priceData + '}';
-        priceJSON = JSON.parse(priceData);
-
-        return priceJSON;        
-//        return coinData;
+        return coinData;
     } catch (error) {
         Globals.logger.addLogMessage('Failed to get price from API: ' + error);
         return undefined;
