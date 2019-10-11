@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "armsvault",
   "version": "0.1.0.5",
-=======
-  "name": "TonChan",
-  "version": "1.0.0",
->>>>>>> 587b94d... Reimport project with React 60
   "private": true,
   "scripts": {
     "start": "react-native start",
