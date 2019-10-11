@@ -1,6 +1,6 @@
 package com.armsvault;
 
-import com.tonchan.BuildConfig;
+import com.armsvault.BuildConfig;
 
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -238,8 +238,8 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
             connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             connection.setRequestProperty("Accept", "application/json");
 
-            if (BuildConfig.APPLICATION_ID == "com.tonchan" && BuildConfig.VERSION_CODE >= 100) {
-                connection.setRequestProperty("User-Agent", "tonchan-da-greatest!");
+            if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 100) {
+                connection.setRequestProperty("User-Agent", "armsvault-da-greatest!");
             } else {
                 connection.setRequestProperty("User-Agent", "some-braindead-forker");
             }

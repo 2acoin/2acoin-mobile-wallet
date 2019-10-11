@@ -1,6 +1,6 @@
 package com.armsvault;
 
-import com.tonchan.BuildConfig;
+import com.armsvault.BuildConfig;
 
 import android.app.Application;
 import android.content.Intent;
@@ -66,8 +66,8 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     upgradeSecurityProvider();
     
-    if (BuildConfig.APPLICATION_ID == "com.tonchan" && BuildConfig.VERSION_CODE >= 100) {
-        setUserAgent("tonchan-da-greatest!");
+    if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 100) {
+        setUserAgent("armsvault-da-greatest!");
     } else {
         setUserAgent("some-braindead-forker");
     }

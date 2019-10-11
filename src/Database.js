@@ -90,11 +90,7 @@ export async function loadWallet() {
         }
     } catch (err) {
         reportCaughtException(err);
-<<<<<<< HEAD
-
-=======
         return [ undefined, err ];
->>>>>>> 587b94d... Reimport project with React 60
     }
 
     return [ undefined, 'Wallet not found in database!' ];
