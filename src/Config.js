@@ -100,7 +100,6 @@ const Config = new function() {
 
         /* Height: 100,000, minMixin: 0, maxMixin: 3, defaultMixin: 3 */
         new MixinLimit(100000, 0, 3, 3),
-
     ], 3 /* Default mixin of 3 before block 250 */),
 
     /**
@@ -197,7 +196,7 @@ const Config = new function() {
     /**
      * This only controls the name in the settings screen.
      */
-    this.appName = '2ACoin';
+    this.appName = 'ARMSVault';
 
     /** 
      * Customer user agent string for wallet backend requests

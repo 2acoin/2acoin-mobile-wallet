@@ -347,7 +347,7 @@ class BalanceComponent extends React.Component {
             this.value.bounce(800);
         }
     }
-    
+
     render() {
         const compactBalance = <OneLineText
                                      style={{ color: this.props.lockedBalance === 0 ? this.props.screenProps.theme.primaryColour : 'orange', fontSize: 25}}

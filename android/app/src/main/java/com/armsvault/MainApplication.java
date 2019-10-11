@@ -66,7 +66,7 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     upgradeSecurityProvider();
     
-    if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 100) {
+    if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 1) {
         setUserAgent("armsvault-da-greatest!");
     } else {
         setUserAgent("some-braindead-forker");
