@@ -36,7 +36,7 @@ const Config = new function() {
 
     /**
      * The address prefix your coin uses - you can find this in CryptoNoteConfig.h.
-     * In TurtleCoin, this converts to TRTL
+     * In 2ACoin, this converts to guns
      */
     this.addressPrefix = 0x1fcdee;
 
