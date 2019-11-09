@@ -228,7 +228,7 @@ const Config = new function() {
      * A url to fetch node info from. Should follow the turtlepay format
      * detailed here: https://docs.turtlepay.io/blockapi/
      */
-    this.nodeListURL = 'https://blockapi.2acoin.org/node/list/available';
+    this.nodeListURL = 'https://blockapi.2acoin.org/node/list';
 };
 
 module.exports = Config;
