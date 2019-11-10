@@ -1,5 +1,5 @@
 // Copyright (C) 2018, Zpalmtree
-// Copyright (C) 2019, 2ACoin Developers 
+// Copyright (C) 2019, 2ACoin Developers
 //
 // Please see the included LICENSE file for more information.
 
@@ -70,7 +70,7 @@ const Config = new function() {
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    this.blocksPerTick = 1;
+    this.blocksPerTick = 100;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
