@@ -436,7 +436,7 @@ class SyncComponent extends React.Component {
         }
 
         /* Don't divide by zero */
-        let progress = networkHeight === 0 ? 0 : walletHeight / networkHeight;
+        let progress = networkHeight === 0 ? 100 : walletHeight / networkHeight;
 
         if (progress > 1) {
             progress = 1;
@@ -452,6 +452,8 @@ class SyncComponent extends React.Component {
         /* Prevent 100% when just under */
         if (percent > 99.99 && percent < 100) {
             percent = 99.99;
+        } else if (percent > 100) {
+            percent = 100;
         }
 
         const justSynced = progress === 1 && this.state.progress !== 1;
