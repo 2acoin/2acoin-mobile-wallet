@@ -164,7 +164,7 @@ const Config = new function() {
     /**
      * Fee to take on all transactions, in percentage
      */
-    this.devFeePercentage = 0.5;
+    this.devFeePercentage = 0.1;
 
     /**
      * Address to send dev fee to
