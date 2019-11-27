@@ -140,6 +140,7 @@ export class MainScreen extends React.Component {
         this.handleURI = this.handleURI.bind(this);
         this.handleAppStateChange = this.handleAppStateChange.bind(this);
         this.handleNetInfoChange = this.handleNetInfoChange.bind(this);
+        this.unsubscribe = () => {};
 
         const [unlockedBalance, lockedBalance] = Globals.wallet.getBalance();
 
@@ -205,7 +206,7 @@ export class MainScreen extends React.Component {
         }
     }
 
-    async handleNetInfoChange({ type, effectiveType }) {
+    async handleNetInfoChange({ type }) {
         if (Globals.preferences.limitData && type === 'cellular') {
             Globals.logger.addLogMessage("Network connection changed to cellular, and we are limiting data. Stopping sync.");
             Globals.wallet.stop();
@@ -219,7 +220,7 @@ export class MainScreen extends React.Component {
     }
 
     componentDidMount() {
-        NetInfo.addEventListener('connectionChange', this.handleNetInfoChange);
+        this.unsubscribe = NetInfo.addEventListener(this.handleNetInfoChange);
         AppState.addEventListener('change', this.handleAppStateChange);
         Linking.addEventListener('url', this.handleURI);
         initBackgroundSync();
@@ -229,6 +230,7 @@ export class MainScreen extends React.Component {
         NetInfo.removeEventListener('connectionChange', this.handleNetInfoChange);
         AppState.removeEventListener('change', this.handleAppStateChange);
         Linking.removeEventListener('url', this.handleURI);
+        this.unsubscribe();
     }
 
     async refresh() {
