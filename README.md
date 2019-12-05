@@ -46,7 +46,7 @@ ArmsVault supports two kinds of QR codes.
 
 * 2acoin:// URI encoded as a QR code.
 
-Your uri must being with `2acoin://` followed by the address to send to, for example, `2acoin://gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU`
+Your uri must begin with `2acoin://` followed by the address to send to, for example, `2acoin://gunsHpae2kTGe64sLSDwcYNzkBS9gcarqVuoSsmXWSrxFsjsphE9UXCDnRaJ4cFn73LaL4wMQrvNeKNYWTvbucqR8wwsuK6fRU`
 
 There are a few optional parameters.
 
