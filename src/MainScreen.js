@@ -41,6 +41,14 @@ async function init(navigation) {
     Globals.wallet.scanCoinbaseTransactions(Globals.preferences.scanCoinbaseTransactions);
     Globals.wallet.enableAutoOptimization(Globals.preferences.autoOptimize);
 
+    /* Remove any previously added listeners */
+    Globals.wallet.removeAllListeners('incomingtx');
+    Globals.wallet.removeAllListeners('transaction');
+    Globals.wallet.removeAllListeners('createdtx');
+    Globals.wallet.removeAllListeners('createdfusiontx');
+    Globals.wallet.removeAllListeners('deadnode');
+    Globals.wallet.removeAllListeners('heightchange');
+
     Globals.wallet.on('incomingtx', (transaction) => {
         sendNotification(transaction);
     });
@@ -159,6 +167,10 @@ export class MainScreen extends React.Component {
         });
 
         Globals.wallet.on('createdtx', () => {
+            this.updateBalance();
+        });
+
+        Globals.wallet.on('createdfusiontx', () => {
             this.updateBalance();
         });
     }
