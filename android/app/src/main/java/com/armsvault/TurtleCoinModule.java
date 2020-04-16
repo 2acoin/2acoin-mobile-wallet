@@ -300,9 +300,9 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
             connection.setRequestProperty("Accept", "application/json");
 
             if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 1) {
-                connection.setRequestProperty("User-Agent", "armsvault-da-greatest!");
+                connection.setRequestProperty("User-Agent", "armsvault-v1.1.2");
             } else {
-                connection.setRequestProperty("User-Agent", "some-braindead-forker");
+                connection.setRequestProperty("User-Agent", "some-forked-version");
             }
 
             /* Indicate we have a POST body */

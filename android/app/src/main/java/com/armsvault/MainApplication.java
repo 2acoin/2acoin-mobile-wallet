@@ -67,9 +67,9 @@ public class MainApplication extends Application implements ReactApplication {
     upgradeSecurityProvider();
     
     if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 1) {
-        setUserAgent("armsvault-da-greatest!");
+        setUserAgent("armsvault-v1.1.2");
     } else {
-        setUserAgent("some-braindead-forker");
+        setUserAgent("some-forked-version");
     }
 
     SoLoader.init(this, /* native exopackage */ false);
