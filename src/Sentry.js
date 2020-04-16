@@ -2,7 +2,7 @@
 //
 // Please see the included LICENSE file for more information.
 
-import { Sentry } from 'react-native-sentry';
+import * as Sentry from '@sentry/react-native';
 
 import * as _ from 'lodash';
 
@@ -31,10 +31,10 @@ export function reportCaughtException(err) {
 export function initSentry() {
     if (sentryIsEnabled) {
         /* CHANGE THIS IF YOU ARE FORKING! */
-        Sentry.config('https://14dd359d38314269b1be5b2c164a478e@sentry.io/1482559').install();
-        Sentry.setVersion(Config.appVersion);
-        Sentry.setDataCallback((event) => {
-            console.log(event);
+        Sentry.init({ 
+          dsn: 'https://14dd359d38314269b1be5b2c164a478e@sentry.io/1482559', 
         });
+
+        Sentry.setRelease('com.armsvault-' + Config.appVersion);
     }
 }
