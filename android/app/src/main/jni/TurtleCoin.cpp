@@ -129,7 +129,7 @@ Java_com_armsvault_TurtleCoinModule_generateRingSignaturesJNI(
 }
 
 extern "C" JNIEXPORT jboolean JNICALL
-Java_com_tonchan_TurtleCoinModule_checkRingSignatureJNI(
+Java_com_armsvault_TurtleCoinModule_checkRingSignatureJNI(
     JNIEnv *env,
     jobject instance,
     jstring jPrefixHash,
