@@ -1,4 +1,5 @@
 // Copyright (C) 2019, Zpalmtree
+// Copyright (C) 2020, 2ACoin Devs
 //
 // Please see the included LICENSE file for more information.
 
@@ -8,7 +9,7 @@ import * as _ from 'lodash';
 
 import Config from './Config';
 
-/* Manually comparing to TurtleCoin to try and prevent getting errors reported
+/* Manually comparing to 2ACoin to try and prevent getting errors reported
    for forks... */
 /* DO NOT CHANGE THIS LINE WITHOUT ALSO ALTERING THE Sentry.config() LINE - See readme and sentry docs. */
 const sentryIsEnabled = !__DEV__ && Config.coinName === '2ACoin';
