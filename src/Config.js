@@ -174,7 +174,7 @@ const Config = new function() {
     /**
      * Address to send dev fee to
      */
-    this.devFeeAddress = 'guns7Kc4GcbiiVBouqcg5R2U4qtWfwkiHFPneQquyUZ2PNtWotKrATYYz8Sp7PFKN8jgXLLZF8qmRRDgFGBkUTps6vDoZj7Q8H';
+    this.devFeeAddress = 'gunsAuLW8PiYvmo7Xpumv1gtxFer3oVF85y1gSFFrrNiBgwRwfAnxKCetKshW3kcMShrNvMs33qCpEqziaRjxG1Q7HBeWN9pbq';
 
     /**
      * Base url for price API
