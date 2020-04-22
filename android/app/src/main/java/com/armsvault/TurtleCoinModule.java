@@ -39,7 +39,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
     /* Access this by doing NativeModules.TurtleCoin in react */
     @Override
     public String getName() {
-        return "2ACoin";
+        return "TurtleCoin";
     }
 
     @ReactMethod
