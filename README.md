@@ -3,32 +3,58 @@
 ![Screenshot](https://i.imgur.com/zJrbZIC.png)
 ![Screenshot](https://i.imgur.com/i6J1uKH.png)
 
-## Releases - Android
+### Release - Android ###
 
-The initial release of 2ACoin ARMSVault is built for the Android mobile platform. We have plans for an IOS release at a later time. Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobile-wallet/releases) for the latest release.
+This release of 2ACoin ARMSVault is built for the Android mobile platform. 
 
-### Initial Setup
+Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobile-wallet/releases) for the latest release.
 
-* `cd 2acoin-mobile-wallet`
-* `yarn install`
+### Release - IOS ###
 
-### Running
+We have plans for an IOS release at a later time. 
 
-* `node --max-old-space-size=8192 node_modules/react-native/local-cli/cli.js start` (Just need to run this once to start the server, leave it running)
-* `react-native run-android`
+# Installation Instructions #
+To install 2ACoin ARMSVault onto your Android device the best option is to utilize the Google PlayStore [Google PlayStore - ARMSVault](https://play.google.com/store/apps/details?id=com.armsvault) from there you can easily download and install the latest version.
 
-### Logging
+If you have an unlocked Android device, you can download the [latest ARMSVault version APK](https://github.com/2acoin/2acoin-mobile-wallet/releases/latest) and install it to your device.
 
+# Developers Only #
+If you are a developer, and you are looking to fork 2ACoin ARMSVault, follow these instructions.
+
+### Initial Setup ###
+
+Perform the initial installation of the development components
+
+`git clone https://github.com/2acoin/2acoin-mobile-wallet.git 2acoin-mobile-wallet`  
+`cd 2acoin-mobile-wallet`  
+`yarn install`
+
+## Running natively on your Android device
+
+Follow [this](https://facebook.github.io/react-native/docs/running-on-device.html) guide.
+
+### Building and Running ARMSVault ###
+Utilizing SCREEN or your favorite session manager. Create 2 sessions  
+Session 1  
+`node --max-old-space-size=8192 node_modules/react-native/local-cli/cli.js start`  
+(Just need to run this once to start the server, leave it running)
+
+Session 2  
+`react-native run-android`  
+(this will build the app)
+
+### Logging Device Logs to Computer ###
+To log your device logs to your computer you can build and run ARMSVault with the following.  
 `react-native log-android`
 
-### Creating a release
+### Creating an ARMSVault Release ###
 
 You need to bump the version number in:
 
-* `src/Config.js` - `appVersion`
-* `android/app/build.gradle` - `versionCode` and `versionName`
-* `package.json` - `version` - Not strictly required
-* Update user agent in `android/app/src/main/java/com/armsvault/MainApplication.java` and `android/app/src/main/java/com/armsvault/TurtleCoinModule.java`
+* `src/Config.js` - `appVersion`  
+* `android/app/build.gradle` - `versionCode` and `versionName`  
+* `package.json` - `version` - Not strictly required  
+* Update user agent in `android/app/src/main/java/com/armsvault/MainApplication.java` and `android/app/src/main/java/com/armsvault/TurtleCoinModule.java`  
 
 Then
 `cd android`
@@ -38,7 +64,24 @@ Optionally
 
 or `yarn deploy-android`
 
-### Integrating QR Codes or URIs
+### Building an APK ###
+
+Follow [this](https://facebook.github.io/react-native/docs/signed-apk-android.html) guide.
+
+Once you have finished, compile the APK:
+
+`yarn build-android`
+
+Install the APK on your device:
+
+`yarn deploy-android`
+
+If it all works, you can then upload to the play store.
+
+Note that you need to close the emulator to get the `yarn deploy-android` to install on your mobile.
+
+
+# Integrating QR Codes or URIs #
 
 ArmsVault supports two kinds of QR codes.
 
@@ -65,31 +108,12 @@ This would send `2 ARMS` (200000000 in atomic units) to the address `gunsHpae2kT
 You can also just display the URI as a hyperlink. If a user clicks the link, it will open the app, and jump to the confirm screen, just as a QR code would function. (Provided all the fields are given)
 <<<<<<< HEAD
 
-## Running natively on your Android device
 
-Follow [this](https://facebook.github.io/react-native/docs/running-on-device.html) guide.
-
-## Building an APK
-
-Follow [this](https://facebook.github.io/react-native/docs/signed-apk-android.html) guide.
-
-Once you have finished, compile the APK:
-
-`yarn build-android`
-
-Install the APK on your device:
-
-`yarn deploy-android`
-
-If it all works, you can then upload to the play store.
-
-Note that you need to close the emulator to get the `yarn deploy-android` to install on your mobile.
-
-## Forking
+# Forking #
 
 Start by cloning the latest tagged release. If it's not in a release, it has not been fully tested, and may have bugs.
 
-#### Modifying icon
+#### Modifying icon ####
 
 Replace `assets/img/icon.png` with your icon image. Make sure it is 1024x1024.
 
@@ -99,7 +123,7 @@ Run `yo rn-toolbox:assets --icon assets/img/icon.png --force`
 
 When it asks for the name of your react-native project, enter `TonChan`
 
-#### Renaming app
+#### Renaming app ####
 
 There is a tool that does this, `react-native-rename`. However, the native code, (`android/app/src/main/jni/TurtleCoin.cpp`) needs the name of the class to find the Java/C++ interface.
 
@@ -111,15 +135,15 @@ Run `react-native-rename your-new-project-name` from this directory. (Obviously,
 
 This might confuse the build system. You probably should do this before installing.
 
-#### Building an APK
+#### Building an APK ####
 
 You will need to set up your signing key, and keystore file. See https://facebook.github.io/react-native/docs/signed-apk-android.html#generating-a-signing-key
 
-#### Config
+#### Config ####
 
 Edit `src/Config.js`. The fields should be self explanatory. Make sure to recompile.
 
-#### Sentry
+#### Sentry ####
 
 Sentry is a tool to report crashes in the application. *Please* configure this, or disable it, so we do not get reported errors for your application.
 
