@@ -11,29 +11,21 @@ Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobi
 
 ### Release - IOS ###
 
-We have plans for an IOS release at a later time.
+This release of 2ACoin ARMSVault has the build for the IOS release (see developer section).
 
-
-# Building and Running ARMSVault for IOS #
-1. Create a sentry.properties file in the project root folder
-2. Populate it with text below (PLease replace the values with your valid values)
-    ````
-    [defaults]
-    url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
-    org = sentry-test
-    project = react-native
-
-    [auth]
-    token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    ```
-3. Run `yarn install` to install the required packages
-4. cd into ios folder and run `pod install`
-5. Finally open ios/app_name.xcworkspace in xCode and then build
 
 # Installation Instructions #
+
+### Android ###
+
 To install 2ACoin ARMSVault onto your Android device the best option is to utilize the Google PlayStore [Google PlayStore - ARMSVault](https://play.google.com/store/apps/details?id=com.armsvault) from there you can easily download and install the latest version.
 
 If you have an unlocked Android device, you can download the [latest ARMSVault version APK](https://github.com/2acoin/2acoin-mobile-wallet/releases/latest) and install it to your device.
+
+### IOS Device ###
+
+To install 2ACoin ARMSVault onto your IOS device the best option is to utilize the Apple App Store  [Apple App Store - ARMSVault](https://www.apple.com/ios/app-store/) from there you can easily download and install the latest version.
+
 
 # Developers Only #
 If you are a developer, and you are looking to fork 2ACoin ARMSVault, follow these instructions.
@@ -96,6 +88,26 @@ Install the APK on your device:
 If it all works, you can then upload to the play store.
 
 Note that you need to close the emulator to get the `yarn deploy-android` to install on your mobile.
+
+## Building and Running ARMSVault for IOS ##
+
+1. Create a sentry.properties file in the project root folder
+2. Populate it with text below (Please replace the values with your valid values)
+    
+    
+    	[defaults]
+    	url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
+    	org = sentry-test
+    	project = react-native
+    	
+    	[auth]
+    	token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    
+    
+    
+3. Run `yarn install` to install the required packages
+4. cd into ios folder and run `pod install`
+5. Finally open ios/app_name.xcworkspace in xCode and then build
 
 
 # Integrating QR Codes or URIs #
