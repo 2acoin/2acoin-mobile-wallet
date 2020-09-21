@@ -17,13 +17,13 @@ We have plans for an IOS release at a later time.
 # Building and Running ARMSVault for IOS #
 1. Create a sentry.properties file in the project root folder
 2. Populate it with text below (PLease replace the values with your valid values)
-    [defaults]
-    url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
-    org = sentry-test
-    project = react-native
+    `[defaults]`
+    `url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx`
+    `org = sentry-test`
+    `project = react-native`
 
-    [auth]
-    token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    `[auth]`
+    `token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 3. Run `yarn install` to install the required packages
 4. cd into ios folder and run `pod install`
 5. Finally open ios/app_name.xcworkspace in xCode and then build
