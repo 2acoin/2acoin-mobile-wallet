@@ -33,8 +33,10 @@ export function initSentry() {
     if (sentryIsEnabled) {
         /* CHANGE THIS IF YOU ARE FORKING! */
         Sentry.init({ 
-          dsn: 'https://68c0325b83bc4e75bd49d77aaead413a@o450284.ingest.sentry.io/5434906', 
-          //dsn: 'https://14dd359d38314269b1be5b2c164a478e@sentry.io/1482559', 
+		  /* Eco Dev System Sentry */
+          //dsn: 'https://68c0325b83bc4e75bd49d77aaead413a@o450284.ingest.sentry.io/5434906', 
+		  /* 2ACoin Sentry */
+          dsn: 'https://14dd359d38314269b1be5b2c164a478e@sentry.io/1482559', 
         });
 
         Sentry.setRelease('com.armsvault-' + Config.appVersion);
