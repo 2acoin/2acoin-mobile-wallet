@@ -34,9 +34,30 @@ If you are a developer, and you are looking to fork 2ACoin ARMSVault, follow the
 
 Perform the initial installation of the development components
 
-`git clone https://github.com/2acoin/2acoin-mobile-wallet.git 2acoin-mobile-wallet`  
-`cd 2acoin-mobile-wallet`  
-`yarn install`
+
+1. run a git clone to get the latest code  
+	`git clone https://github.com/2acoin/2acoin-mobile-wallet.git 2acoin-mobile-wallet`
+
+2. then change to the cloned folder  
+	`cd 2acoin-mobile-wallet`  
+3. Create a sentry.properties file in the project root folder
+4. Populate it with text below (Please replace the values with your valid values)
+    
+    
+    	[defaults]
+    	url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
+    	org = sentry-test
+    	project = react-native
+    	
+    	[auth]
+    	token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    
+    
+    
+5. Run `yarn install` to install the required packages
+6. Run the Sentry Wizard  
+	`yarn sentry-wizard -i reactNative -p ios android`
+
 
 ## Running natively on your Android device
 
@@ -91,23 +112,8 @@ Note that you need to close the emulator to get the `yarn deploy-android` to ins
 
 ## Building and Running ARMSVault for IOS ##
 
-1. Create a sentry.properties file in the project root folder
-2. Populate it with text below (Please replace the values with your valid values)
-    
-    
-    	[defaults]
-    	url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
-    	org = sentry-test
-    	project = react-native
-    	
-    	[auth]
-    	token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    
-    
-    
-3. Run `yarn install` to install the required packages
-4. cd into ios folder and run `pod install`
-5. Finally open ios/app_name.xcworkspace in xCode and then build
+1. cd into ios folder and run `pod install`
+2. Finally open ios/app_name.xcworkspace in xCode and then build
 
 
 # Integrating QR Codes or URIs #
