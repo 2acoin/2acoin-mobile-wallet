@@ -11,7 +11,24 @@ Check the [2ACoin ARMSVault Releases page](https://github.com/2acoin/2acoin-mobi
 
 ### Release - IOS ###
 
-We have plans for an IOS release at a later time. 
+We have plans for an IOS release at a later time.
+
+
+# Building and Running ARMSVault for IOS #
+1. Create a sentry.properties file in the project root folder
+2. Populate it with text below (PLease replace the values with your valid values)
+    ````
+    [defaults]
+    url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@xxxxxxx.ingest.sentry.io/xxxxxxx
+    org = sentry-test
+    project = react-native
+
+    [auth]
+    token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```
+3. Run `yarn install` to install the required packages
+4. cd into ios folder and run `pod install`
+5. Finally open ios/app_name.xcworkspace in xCode and then build
 
 # Installation Instructions #
 To install 2ACoin ARMSVault onto your Android device the best option is to utilize the Google PlayStore [Google PlayStore - ARMSVault](https://play.google.com/store/apps/details?id=com.armsvault) from there you can easily download and install the latest version.

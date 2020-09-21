@@ -10,13 +10,15 @@ import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
+import org.reactnative.camera.RNCameraPackage;
+import io.sentry.RNSentryPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.modules.network.OkHttpClientFactory;
 import com.facebook.react.modules.network.OkHttpClientProvider;
 import com.facebook.soloader.SoLoader;
 
-import com.hieuvp.fingerprint.ReactNativeFingerprintScannerPackage;
 
 import com.transistorsoft.rnbackgroundfetch.RNBackgroundFetchPackage;
 

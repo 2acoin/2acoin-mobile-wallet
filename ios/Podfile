@@ -35,7 +35,19 @@ target 'ARMSVault' do
   pod 'RNBackgroundFetch', :path => '../node_modules/react-native-background-fetch'
 
 
-  pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
+  pod 'RNSentry', :path => '../node_modules/@sentry/react-native'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-Camera', :path => "../node_modules/react-native-permissions/ios/Camera.podspec"
+  pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts.podspec"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
+
 
   target 'ARMSVaultTests' do
     inherit! :search_paths
