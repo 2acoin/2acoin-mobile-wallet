@@ -27,8 +27,9 @@ We have plans for an IOS release at a later time.
     token = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ```
 3. Run `yarn install` to install the required packages
-4. cd into ios folder and run `pod install`
-5. Finally open ios/app_name.xcworkspace in xCode and then build
+4. Run `yarn sentry-wizard -i reactNative -p ios` to setup sentry for ios build
+5. cd into ios folder and run `pod install`
+6. Finally open ios/app_name.xcworkspace in xCode and then build
 
 # Installation Instructions #
 To install 2ACoin ARMSVault onto your Android device the best option is to utilize the Google PlayStore [Google PlayStore - ARMSVault](https://play.google.com/store/apps/details?id=com.armsvault) from there you can easily download and install the latest version.
