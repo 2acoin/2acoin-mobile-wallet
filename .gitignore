@@ -7,3 +7,5 @@ android/build
 android/sentry.properties
 ios/sentry.properties
 android/app/my-release-key.keystore
+ios/Pods/
+sentry.properties
