@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 
@@ -134,8 +135,8 @@ android {
         applicationId "com.armsvault"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 12
-        versionName "v0.1.1.2"
+        versionCode 13
+        versionName "v0.1.1.5"
         missingDimensionStrategy 'react-native-camera', 'general'
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
@@ -220,6 +221,8 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'com.google.android.gms:play-services-safetynet:+'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-analytics'	
     apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
     if (enableHermes) {

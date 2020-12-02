@@ -1,6 +1,6 @@
 {
   "name": "armsvault",
-  "version": "0.1.1.2",
+  "version": "0.1.1.5",
   "private": true,
   "scripts": {
     "start": "react-native start",
