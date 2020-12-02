@@ -10,3 +10,4 @@ android/app/my-release-key.keystore
 ios/Pods/
 sentry.properties
 yarn-error.log
+config.js

@@ -53,7 +53,7 @@ const Config = new function() {
     /**
      * How often to process blocks, in millseconds
      */
-    this.syncThreadInterval = 4;
+    this.syncThreadInterval = 10;
 
     /**
      * How often to update the daemon info, in milliseconds
@@ -63,14 +63,14 @@ const Config = new function() {
     /**
      * How often to check on locked transactions
      */
-    this.lockedTransactionsCheckInterval = 10 * 3000;
+    this.lockedTransactionsCheckInterval = 30 * 1000;
 
     /**
      * The amount of blocks to process per 'tick' of the mainloop. Note: too
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    this.blocksPerTick = 100;
+    this.blocksPerTick = 1;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
@@ -87,6 +87,18 @@ const Config = new function() {
      * The minimum fee allowed for transactions, in ATOMIC units
      */
     this.minimumFee = 50000;
+
+    /* Fee per byte is rounded up in chunks. This helps makes estimates
+     * more accurate. It's suggested to make this a power of two, to relate
+     * to the underlying storage cost / page sizes for storing a transaction. */
+    this.feePerByteChunkSize = 256;
+
+    /* Fee to charge per byte of transaction. Will be applied in chunks, see
+     * above. This value comes out to 1000 ATOMIC UNITS. We use this value
+     * instead because it makes for pretty resulting fees.
+     * You can read this as.. the fee per chunk is .00001000 
+     * The fee per byte is 256000 / 256 (chunk size).          */
+    this.minimumFeePerByte = 256000 / this.feePerByteChunkSize;
 
     /**
      * Mapping of height to mixin maximum and mixin minimum
@@ -147,14 +159,39 @@ const Config = new function() {
     this.checkRingSignatures = Platform.OS === 'ios' ? undefined: checkRingSignature;
 
     /**
-     * Memory to use for storing downloaded blocks - 3MB
+     * Memory to use for storing downloaded blocks - 50MB
      */
-    this.blockStoreMemoryLimit = 1024 * 1024 * 3;
+    this.blockStoreMemoryLimit = 1024 * 1024 * 50;
 
     /**
      * Amount of blocks to request from the daemon at once
      */
     this.blocksPerDaemonRequest = 100;
+
+    /**
+     * The amount of seconds to permit not having fetched a block from the
+     * daemon before emitting 'deadnode'. Note that this just means contacting
+     * the daemon for data - if you are synced and it returns TopBlock - the
+     * event will not be emitted.
+     */
+    this.maxLastFetchedBlockInterval = 60 * 3;
+	
+    /**
+     * The amount of seconds to permit not having fetched a new network height
+     * from the daemon before emitting 'deadnode'.
+     */
+    this.maxLastUpdatedNetworkHeightInterval = 60 * 3;
+
+    /**
+     * The amount of seconds to permit not having fetched a new local height
+     * from the daemon before emitting 'deadnode'.
+     */
+    this.maxLastUpdatedLocalHeightInterval = 60 * 3;
+
+    /**
+     * Allows setting a customer user agent string
+     */
+    this.customUserAgentString = `${this.ticker.toLowerCase()}-wallet-backend-${version}`;
 
     /**
      * Unix timestamp of the time your chain was launched.
