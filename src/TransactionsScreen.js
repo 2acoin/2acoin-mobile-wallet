@@ -325,10 +325,10 @@ class TransactionList extends React.Component {
 
     getIconName(transaction) {
         if (transaction.totalAmount() >= 0) {
-            return 'ios-arrow-dropleft';
+            return 'chevron-forward-circle-outline';
         }
 
-        return 'ios-arrow-dropright';
+        return 'chevron-back-circle-outline';
     }
 
     getIconColour(transaction) {

@@ -876,7 +876,7 @@ export class SettingsScreen extends React.Component {
                                 title: 'Rewind Wallet',
                                 description: 'Rescan last 5000 blocks for missing transactions',
                                 icon: {
-                                    iconName: 'md-rewind',
+                                    iconName: 'play-back-sharp',
                                     IconType: Ionicons,
                                 },
                                 onClick: () => {
@@ -909,7 +909,7 @@ export class SettingsScreen extends React.Component {
                                 title: 'Swap Node',
                                 description: 'Use an alternative daemon to sync your wallet',
                                 icon: {
-                                    iconName: 'ios-swap',
+                                    iconName: 'swap-horizontal',
                                     IconType: Ionicons,
                                 },
                                 onClick: () => {
