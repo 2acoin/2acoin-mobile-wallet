@@ -53,7 +53,7 @@ const Config = new function() {
     /**
      * How often to process blocks, in millseconds
      */
-    this.syncThreadInterval = 10;
+    this.syncThreadInterval = 4;
 
     /**
      * How often to update the daemon info, in milliseconds
@@ -96,7 +96,7 @@ const Config = new function() {
     /* Fee to charge per byte of transaction. Will be applied in chunks, see
      * above. This value comes out to 1000 ATOMIC UNITS. We use this value
      * instead because it makes for pretty resulting fees.
-     * You can read this as.. the fee per chunk is .00001000 
+     * You can read this as.. the fee per chunk is .00001000
      * The fee per byte is 256000 / 256 (chunk size).          */
     this.minimumFeePerByte = 256000 / this.feePerByteChunkSize;
 
@@ -159,9 +159,9 @@ const Config = new function() {
     this.checkRingSignatures = Platform.OS === 'ios' ? undefined: checkRingSignature;
 
     /**
-     * Memory to use for storing downloaded blocks - 50MB
+     * Memory to use for storing downloaded blocks - 10MB
      */
-    this.blockStoreMemoryLimit = 1024 * 1024 * 50;
+    this.blockStoreMemoryLimit = 1024 * 1024 * 10;
 
     /**
      * Amount of blocks to request from the daemon at once
