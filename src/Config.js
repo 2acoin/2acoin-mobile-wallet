@@ -189,11 +189,6 @@ const Config = new function() {
     this.maxLastUpdatedLocalHeightInterval = 60 * 3;
 
     /**
-     * Allows setting a customer user agent string
-     */
-    this.customUserAgentString = `${this.ticker.toLowerCase()}-wallet-backend-${version}`;
-
-    /**
      * Unix timestamp of the time your chain was launched.
      *
      * Note - you may want to manually adjust this. Take the current timestamp,
