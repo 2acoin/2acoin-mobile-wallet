@@ -53,7 +53,7 @@ const Config = new function() {
     /**
      * How often to process blocks, in millseconds
      */
-    this.syncThreadInterval = 4;
+    this.syncThreadInterval = 4 * 1000;
 
     /**
      * How often to update the daemon info, in milliseconds
@@ -70,7 +70,7 @@ const Config = new function() {
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    this.blocksPerTick = 1;
+    this.blocksPerTick = 200;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
