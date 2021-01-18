@@ -258,7 +258,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
         promise.resolve("");
     }
-    
+
     @ReactMethod
     public void isDozeDisabled(Promise promise) {
         PowerManager pm = (PowerManager)getReactApplicationContext().getSystemService(Context.POWER_SERVICE);
@@ -300,7 +300,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
             connection.setRequestProperty("Accept", "application/json");
 
             if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 1) {
-                connection.setRequestProperty("User-Agent", "armsvault-v1.1.5");
+                connection.setRequestProperty("User-Agent", "armsvault-v1.1.B");
             } else {
                 connection.setRequestProperty("User-Agent", "some-forked-version");
             }
@@ -351,14 +351,14 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
             StringBuffer response = new StringBuffer();
 
-            char[] inputBuffer = new char[8192];
+            char[] inputBuffer = new char[16384];
 
             int len = 0;
 
             while ((len = in.read(inputBuffer)) != -1)
             {
                 /* Need block count to be > 1 otherwise we will never sync a single block > 2MB */
-                if (BLOCK_COUNT > 1 && (response.length() >= (2 * oneMegaByte) || len >= 2 * oneMegaByte))
+                if (BLOCK_COUNT > 1 && (response.length() >= (5 * oneMegaByte) || len >= 5 * oneMegaByte))
                 {
                     in.close();
 
@@ -431,7 +431,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
     private SpendKey[] arrayToSpendKeys(ReadableArray spendKeys) {
         SpendKey[] keys = new SpendKey[spendKeys.size()];
-        
+
         for (int i = 0; i < spendKeys.size(); i++) {
             keys[i] = new SpendKey(spendKeys.getMap(i));
         }

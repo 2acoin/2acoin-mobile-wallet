@@ -70,7 +70,7 @@ const Config = new function() {
      * high a value will cause the event loop to be blocked, and your interaction
      * to be laggy.
      */
-    this.blocksPerTick = 200;
+    this.blocksPerTick = 100;
 
     /**
      * Your coins 'ticker', generally used to refer to the coin, i.e. 123 TRTL
@@ -161,7 +161,7 @@ const Config = new function() {
     /**
      * Memory to use for storing downloaded blocks - 10MB
      */
-    this.blockStoreMemoryLimit = 1024 * 1024 * 10;
+    this.blockStoreMemoryLimit = 1024 * 1024 * 15;
 
     /**
      * Amount of blocks to request from the daemon at once
@@ -174,19 +174,19 @@ const Config = new function() {
      * the daemon for data - if you are synced and it returns TopBlock - the
      * event will not be emitted.
      */
-    this.maxLastFetchedBlockInterval = 60 * 3;
-	
+//    this.maxLastFetchedBlockInterval = 60 * 3;
+
     /**
      * The amount of seconds to permit not having fetched a new network height
      * from the daemon before emitting 'deadnode'.
      */
-    this.maxLastUpdatedNetworkHeightInterval = 60 * 3;
+//    this.maxLastUpdatedNetworkHeightInterval = 60 * 3;
 
     /**
      * The amount of seconds to permit not having fetched a new local height
      * from the daemon before emitting 'deadnode'.
      */
-    this.maxLastUpdatedLocalHeightInterval = 60 * 3;
+//    this.maxLastUpdatedLocalHeightInterval = 60 * 3;
 
     /**
      * Unix timestamp of the time your chain was launched.
