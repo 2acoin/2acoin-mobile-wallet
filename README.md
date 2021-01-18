@@ -32,7 +32,7 @@ If you are a developer, and you are looking to fork 2ACoin ARMSVault, follow the
 
 ### Initial Setup ###
 
-Perform the initial installation of the development components
+Perform the initial installation of the development components (ios & Android)
 
 
 1. run a git clone to get the latest code  
@@ -112,8 +112,9 @@ Note that you need to close the emulator to get the `yarn deploy-android` to ins
 
 ## Building and Running ARMSVault for IOS ##
 
-1. cd into ios folder and run `pod install`
-2. Finally open ios/app_name.xcworkspace in xCode and then build
+1. Perform the initial setup steps above
+2. cd into ios folder and run `pod install`
+3. Finally open ios/app_name.xcworkspace in xCode and then build
 
 
 # Integrating QR Codes or URIs #
