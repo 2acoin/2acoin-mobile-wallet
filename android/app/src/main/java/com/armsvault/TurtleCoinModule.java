@@ -300,7 +300,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
             connection.setRequestProperty("Accept", "application/json");
 
             if (BuildConfig.APPLICATION_ID == "com.armsvault" && BuildConfig.VERSION_CODE >= 1) {
-                connection.setRequestProperty("User-Agent", "armsvault-v1.1.B");
+                connection.setRequestProperty("User-Agent", "armsvault-v1.1.6");
             } else {
                 connection.setRequestProperty("User-Agent", "some-forked-version");
             }
@@ -357,7 +357,7 @@ public class TurtleCoinModule extends ReactContextBaseJavaModule {
 
             while ((len = in.read(inputBuffer)) != -1)
             {
-                /* Need block count to be > 1 otherwise we will never sync a single block > 2MB */
+                /* Need block count to be > 1 otherwise we will never sync a single block > 5MB */
                 if (BLOCK_COUNT > 1 && (response.length() >= (5 * oneMegaByte) || len >= 5 * oneMegaByte))
                 {
                     in.close();
